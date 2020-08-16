@@ -9,9 +9,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var currentColor = NSColor.systemBlue
+    var colorArray:[NSColor] = [
+        .systemBlue,
+        .systemYellow,
+        .systemOrange,
+        .systemPurple,
+        .systemIndigo,
+        .systemTeal,
+        .systemRed,
+        .systemGreen,
+        .systemGray,
+        .systemPink,
+        .systemBrown,
+    ]
+    
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            NSCursor.hide()
+        }
+        
+        return Button(action: {
+            self.changeColor()
+        }) {
+            Color(self.currentColor)
+                .frame(minWidth: 300, idealWidth: 300, maxWidth: .infinity,
+                       minHeight: 300, idealHeight: 300, maxHeight: .infinity,
+                       alignment: Alignment(horizontal: .center, vertical: .center))
+        }
+        .buttonStyle(PlainButtonStyle())
+        .animation(.easeInOut)
+    }
+    
+    func changeColor() {
+        currentColor = colorArray.shuffled().first!
     }
 }
 
