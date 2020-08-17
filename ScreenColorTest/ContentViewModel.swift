@@ -44,6 +44,5 @@ class ContentViewModel {
         .systemPink,
         .systemBrown,
     ]
-    
-    fileprivate var testedColorsInThisLoop: Set<NSColor> = Set()
+
 }

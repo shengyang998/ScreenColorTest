@@ -15,6 +15,7 @@ struct ContentView: View {
     var model: ContentViewModel = ContentViewModel()
     
     var body: some View {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             NSCursor.hide()
         }
@@ -29,6 +30,7 @@ struct ContentView: View {
         }
         .buttonStyle(PlainButtonStyle())
         .animation(.easeInOut)
+        
     }
     
     func changeColor() {
