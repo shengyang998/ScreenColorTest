@@ -10,20 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var currentColor = NSColor.systemBlue
-    var colorArray:[NSColor] = [
-        .systemBlue,
-        .systemYellow,
-        .systemOrange,
-        .systemPurple,
-        .systemIndigo,
-        .systemTeal,
-        .systemRed,
-        .systemGreen,
-        .systemGray,
-        .systemPink,
-        .systemBrown,
-    ]
+    @State var currentColor: NSColor = NSColor.white
+    
+    var model: ContentViewModel = ContentViewModel()
     
     var body: some View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -43,7 +32,7 @@ struct ContentView: View {
     }
     
     func changeColor() {
-        currentColor = colorArray.shuffled().first!
+        currentColor = model.newColor
     }
 }
 
